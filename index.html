@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+   <!-- Div CITS3403/5505 Final Test -->
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Window 69 chat bot instructions">
+      <meta name="keywords" content="HTML, basic, css">
+      <meta name="author" content="divij Bhaw">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Window 69 chat bot instructions</title>
+      <style>
+         body {
+         background-color: #008080;
+         font-family: "MS Sans Serif", sans-serif;
+         }
+         ul.navbar {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         overflow: hidden;
+         background-color: #333;
+         }
+         ul.navbar li {
+         float: left;
+         }
+         ul.navbar li a {
+         display: block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         }
+         ul.navbar li a:hover {
+         background-color: #111;
+         }
+         #reactive-image {
+         width: 20%;
+         height: auto;
+         transition: transform 0.3s ease;
+         text-align: center;
+         }
+         #reactive-image:hover {
+         transform: scale(1.1);
+         }
+         #image-container {
+         display: flex;
+         justify-content: center;
+         }
+         .content {
+         background: #c3c3c3;
+         box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #fdffff,
+         inset -2px -2px 0px #818181, inset 2px 2px 0px #c3c3c3;
+         padding: 20px;
+         height: 700px;
+         width: auto;
+         }
+         .title {
+         padding: 1px 0px 1px 20px;
+         background-color: #333;
+         color: #fdffff;
+         font-size: small;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         width: auto;
+         }
+         .scrollable-div {
+         height: 670px;
+         overflow-y: auto;
+         }
+         .popup {
+         display: none;
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         padding: 20px;
+         z-index: 9999;
+         width: 1000px;
+         }
+         /* Styling for the overlay */
+         .overlay {
+         display: none;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.5);
+         z-index: 9998;
+         }
+         p {
+         color: #333;
+         }
+         p:hover {
+         color: black;
+         }
+         .main {
+         position: fixed;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         padding: 20px;
+         z-index: 9997;
+         width: 1500px;
+         height: 80%;
+         }
+         /* main function  */
+         .container {
+         display: flex;
+         }
+         .left-container {
+         flex-basis: 33.33%;
+         padding-right: 20px;
+         }
+         .right-container {
+         flex-basis: 66.66%;
+         padding-left: 20px;
+         }
+         .box {
+         display: block;
+         width: 100%;
+         padding: 10px;
+         margin-bottom: 10px;
+         background-color: #f5f5f5;
+         border: 1px solid #ccc;
+         text-align: left;
+         transition: transform 0.3s; 
+         }
+         .box:hover {
+         color: white;
+         background-color: #333;
+         transform: scale(1.02); 
+         }
+         .box-title {
+         font-weight: bold;
+         }
+         .box-text {
+         color: #666;
+         }
+         .box-text:hover {
+         color: white;
+         background-color: #333;
+         }
+         .box-image {
+         max-width: 100%;
+         margin-top: 10px;
+         transition: transform 0.3s; 
+         }
+         .box-image:hover {
+          transform: scale(1.03); 
+         }
+         .aside {
+         display: none;
+         background-color: #f5f5f5;
+         padding: 10px;
+         margin-top: 10px;
+         padding-left: 1000px;
+         }
+         #asideContainer {
+         display: none;
+         }
+         .button {
+         display: inline-block;
+         padding: 6px 12px;
+         background-color: #c0c0c0;
+         border: 1px solid #808080;
+         border-radius: 4px;
+         font-family: Arial, sans-serif;
+         font-size: 12px;
+         color: #000000;
+         text-decoration: none;
+         cursor: pointer;
+         }
+         .button:hover {
+         background-color: #d3d3d3;
+         }
+         .button:active {
+         background-color: #a9a9a9;
+         border: 1px solid #000000;
+         }
+         #rightscroll {
+         display: none;
+         }
+         .logocontainer {
+         display: flex;
+         align-items: center;
+         }
+         .logocontainer img {
+         margin-right: 10px;
+         }
+         .logocontainer h1 {
+         margin: 0;
+         }
+      </style>
+   </head>
+   <body>
+      <div>
+         <ul class="navbar">
+            <li>
+               <a onclick="openPopup('overview')">Overview</a>
+            </li>
+            <li>
+               <a onclick="openPopup('suggested-features')">Features</a>
+            </li>
+            <li>
+               <a onclick="openPopup('advice-groups')">Advice</a>
+            </li>
+            <li>
+               <a onclick="openPopup('credits')">StudentName</a>
+            </li>
+         </ul>
+      </div>
+      <div class="overlay" id="overlay"></div>
+      <!-- overview  -->
+      <div class="popup" id="overview">
+         <div class="title">
+            <h2>Windows 69 Chatbot Overview</h2>
+         </div>
+         <div class="content">
+            <div class="scrollable-div">
+               <div class="logocontainer">
+                  <img src="src/Asset/Clippy.webp" alt="Clippy">
+                  <h1>
+                     Welcome to Windows 69 Chatbot Overview
+                  </h1>
+               </div>
+               <h4>sneak Peak:</h4>
+               <img src="src/Asset/ezgif-4-38d88b4ca1.gif" alt="Animated GIF" style="width: 600px; height: auto;">
+               <h3>Purpose of the Application </h3>
+               <p id="dem1"></p>
+               <h3>Functionality and Operation </h3>
+               <p id="dem2"></p>
+               <h3>Intended Users</h3>
+               <p id="dem3"></p>
+            </div>
+            <button onclick="closePopup('overview')">Close</button>
+         </div>
+      </div>
+      <!-- suggested-features -->
+      <div class="popup" id="suggested-features">
+         <div class="title">
+            <h2>Suggested-features</h2>
+         </div>
+         <div class="content">
+            <div class="scrollable-div">
+               <h3>Suggested Features</h3>
+               <p id="fea1"></p>
+               <h3>How the feature works from the user`s point of view </h3>
+               <p id="fea2"></p>
+               <h3> Set of Test cases (Given-when-then Convention) </h3>
+               <p id="fea3"></p>
+            </div>
+            <button onclick="closePopup('suggested-features')">Close</button>
+         </div>
+      </div>
+      <!-- advice-groups -->
+      <div class="popup" id="advice-groups">
+         <div class="title">
+            <h2>Advice-groups</h2>
+         </div>
+         <div class="content">
+            <div class="scrollable-div">
+               <h3>Software tools I Recommend using</h3>
+               <p id="too1"></p>
+               <h3>Tools :</h3>
+               <p id="too2"></p>
+               <h3>Recommendations for Project Managment</h3>
+               <p id="too3"></p>
+               <h3>Best practice for prioritizing deadlines and deliverables</h3>
+               <p id="too4"></p>
+               <h3>Useful resources:</h3>
+               <p id="too5"></p>
+            </div>
+            <button onclick="closePopup('advice-groups')">Close</button>
+         </div>
+      </div>
+      <!-- advice-groups -->
+      <div class="popup" id="credits">
+         <div class="title">
+            <h2>Credits</h2>
+         </div>
+         <div class="content">
+            <div class="scrollable-div">
+               <h1>credits</h1>
+               <img src="src/Asset/Untitled.jpg" alt="me Image" style="width: 800px; height: auto;">
+               <h2 id="credit1"></h2>
+            </div>
+            <button onclick="closePopup('credits')">Close</button>
+         </div>
+      </div>
+      <!-- instructions-groups -->
+      <div class="main" id="maininstructions">
+      <div class="title">
+         <h2> instructions</h2>
+      </div>
+      <div class="content">
+         <div class="container">
+            <div class="scrollable-div" style="width: 500px;">
+               <div class="left-container" id="boxContainer"></div>
+            </div>
+            <div class="scrollable-div" id="rightscroll" style="width: 900px;">
+               <div>
+                  <div class="right-container" id="asideContainer"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+   <!-- json data and js scripts -->
+   <script>
+      const data = {
+        overview: {
+          purpose: "The purpose of the Windows69 Chat-Bot application is to provide users with an authentic Windows 98 style chat experience. It combines modern AI chat technology with a vintage graphical interface to recreate the feeling of using a computer from the late 90s. The application aims to offer a distinct, immersive, and memorable chat experience for its users.",
+          functionality: "Windows69 Chat-Bot allows users to engage in real-time chats with other users who have similar interests in the vintage Windows experience. The application provides AI chatbots with distinctive personalities that can be customized and invited into conversations. Users can chat with these AI chatbots and even inquire about their thoughts on various topics. The Windows69 Chat-Bot application uses webhooks, an SQL database, and the ChatGPT API to work. Webhooks enable real-time communication with external services. The SQL database is used to store user data and chat histories. Users' chat history can be viewed through the app's search function, which integrates with the SQL database. The ChatGPT API generates intelligent responses for the chatbots. These components come together to create an immersive chat experience that combines the Windows 98 style with modern AI technology.",
+          intendedUsers: "The application is designed for users who have a nostalgic fondness for the Windows 98 era and its graphical interface. It targets individuals who appreciate vintage technology and enjoy engaging in real-time chats with others who share their interest in the Windows 98 aesthetic."
+        },
+        softwareTools: {
+          paragraph: "During the CITS3403 project, we utilized a range of tools for prototyping, coding, and incorporating libraries. For prototyping, we relied on Figma, a versatile design tool that allowed us to effectively create and iterate on visual mockups and wireframes. When it came to coding, GitHub served as our primary version control and collaboration platform. Its robust features facilitated seamless teamwork and efficient code management throughout the project. Additionally, an alternative to GitHub is Bitbucket, another widely used tool in the industry. To meet our coding and editing needs, we found VSCodium to be a reliable choice. It provided an open-source environment that enhanced our productivity. Furthermore, we had the opportunity to explore GitHub Copilot, an AI-powered code suggestion tool that proved valuable in assisting us with our coding tasks. Lastly, we incorporated Bootstrap as a library for rapid HTML development. Its pre-designed components and responsive grid system streamlined our process, allowing us to efficiently create web pages."
+        },
+        toolList: {
+          tools: [{
+            name: "Figma",
+            link: "https://www.figma.com/"
+          }, {
+            name: "GitHub",
+            link: "https://github.com/"
+          }, {
+            name: "Bitbucket",
+            link: "https://bitbucket.org/"
+          }, {
+            name: "VSCodium",
+            link: "https://vscodium.com/"
+          }, {
+            name: "GitHub Copilot",
+            link: "https://copilot.github.com/"
+          }, {
+            name: "Bootstrap",
+            link: "https://getbootstrap.com/"
+          }]
+        },
+        usefulResources: {
+          "W3Schools": {
+            description: "Beginner-friendly tutorials and references.",
+            link: "https://www.w3schools.com/"
+          },
+          "Stack Overflow": {
+            description: "A question-and-answer community for programmers.",
+            link: "https://stackoverflow.com/"
+          },
+          "GitHub": {
+            description: "Version control and collaborative development platform.",
+            link: "https://github.com/"
+          },
+          "CodePen": {
+            description: "Online code editor and community.",
+            link: "https://codepen.io/"
+          },
+          "CSS-Tricks": {
+            description: "Web design and development blog.",
+            link: "https://css-tricks.com/"
+          }
+        },
+        managingCommunication: {
+          paragraph: "In the industry, communication tools play a vital role in facilitating effective collaboration. Slack and Confluence are commonly used tools for communication. During our CITS3403 project, we specifically utilized Discord for communication purposes. Similarly, project management tools are essential for organizing and tracking progress. Jira and Trello are widely used tools in the industry for project management. For our CITS3403 project, we relied on GitHub Issues as our project management tool. GitHub proved to be instrumental throughout our project. It enabled us to address and resolve several merge conflicts and revert to previous versions whenever issues with HTML components arose. We created a GitHub organization for the project. The use of Discord and GitHub Issues greatly contributed to the success and efficiency of our project. All of our members could work on different elements of the project simultaneously and had an idea of what everyone was working on. We used GitHub Issues and merge requests to review everyone's code before merging changes."
+        },
+        deadlines: {
+          paragraph: "We had to set hard deadlines for functionalities to avoid slowing down the workflow of other team members during the project. Some functionalities were built but never implemented due to deadline constraints. One method for prioritizing deadlines and deliverables in web development is by using GitHub issues. Start by creating a GitHub repository for your project, defining milestones, and breaking down tasks into smaller issues. Prioritize these issues based on importance and assign them to team members. Set realistic due dates and use tags for categorization. Track progress, communicate through comments, and make adjustments as needed. Allocate a period of time for testing, as issues may arise that require additional time to fix. We encountered issues on the last week of building the app that we didn't account for. Therefore, it's important to plan accordingly. Communication is the most important element in preventing overdue tasks and task overlaps."
+        },
+        Credits: {
+          paragraph: [" Div CITS3403/5505 Final Test"]
+        },
+        feature: {
+          paragraph: "The feature I would like to implement is a User Management panel with several functions. First, it allows users to change user passwords and reset them if needed, ensuring the secure management of user accounts. Second, the user panel supports two-factor authentication (2FA) using the Auth0 API. This adds an extra layer of security by requiring users to provide a second verification, such as a code from a mobile app or text message, along with their password. Currently, there is no option to change the user password or reset an account. Lastly, users can view, customize, and access profile photos of other users. This helps them effectively manage and update their profiles, including their profile pictures, creating a visually appealing and personalized experience for users."
+        },
+        userStories: {
+          "UserStory: Kane": {
+            As: "user",
+            IWant: "to be able to change and reset my password for account security.",
+            AcceptanceCriteria: ["The User Management panel should have a 'Change Password' option.", "The option should require the user to enter their current and new password.", "Successful submission should update the password.", "The panel should also have a 'Reset Password' option.", "The option should send a password reset email to the user's registered email address.", "The email should contain instructions for password reset."]
+          },
+          "UserStory: John": {
+            As: "user",
+            IWant: "to enable two-factor authentication (2FA) using the Auth0 API to enhance account security.",
+            AcceptanceCriteria: ["The User Management panel should provide an option to enable 2FA.", "Clear instructions for setting up and configuring 2FA with the Auth0 API should be available.", "After successful setup, 2FA should require a second verification along with the password during login."]
+          },
+          "UserStory: Bec": {
+            As: "user",
+            IWant: "to view, customize, and access profile photos of other users to effectively manage my own profile.",
+            AcceptanceCriteria: ["The User Management panel should display profile photos of other users.", "I should be able to view and customize my own profile photo.", "Customization options should include uploading a new photo or selecting from existing options.", "The updated profile photo should be saved and visible across the system."]
+          }
+        },
+        testCases: {
+          "Change User Passwords": ["Given a user is logged in to the Windows 69 chat app", "And the user is in the 'User Management' section", "When the user clicks on the password change option", "And enters a new password in the form", "And confirms the changes by clicking a button", "Then the user's password should be successfully changed"],
+          "Reset User Passwords": ["Given a user is logged in to the Windows 69 chat app", "And the user is in the 'User Management' section", "When the user chooses the password reset option", "And fills out the password reset form", "And enters a new password in the form", "And confirms the changes by clicking a button", "Then the user's password should be successfully reset"],
+          "Enable Two-Factor Authentication (2FA)": ["Given a user has access to the 'User Management' section", "When the user accesses the 'Security Settings'", "And enables 2FA", "And selects the preferred 2FA method (e.g., mobile app or SMS)", "And fills in the mobile number field or scans the Auth0 QR code to set up 2FA", "Then the user should have successfully enabled 2FA for their account"],
+          "View and Customize Profile Photos": ["Given a user is in the 'User Management' section", "When the user views the current profile photo", "And clicks on the 'Edit' button for fields and photos", "And customizes by uploading a new image or selecting from predefined options", "And saves the changes", "Then the user's profile photo should be successfully customized"]
+        }
+      };
+      // Populate the HTML elements with the merged data
+      
+      document.getElementById("dem1").innerHTML = data.overview.purpose;
+      document.getElementById("dem2").innerHTML = data.overview.functionality;
+      document.getElementById("dem3").innerHTML = data.overview.intendedUsers;
+      
+      document.getElementById("too1").innerHTML = data.softwareTools.paragraph;
+      const toolList = data.toolList.tools;
+      const toolListDiv = document.getElementById("too2");
+      toolList.forEach(tool => {
+        const toolElement = document.createElement("ul");
+        const linkElement = document.createElement("a");
+        linkElement.href = tool.link;
+        linkElement.textContent = tool.name;
+        toolElement.appendChild(linkElement);
+        toolListDiv.appendChild(toolElement);
+      });
+      const usefulResources = data.usefulResources;
+      const resourceDiv = document.getElementById("too5");
+      for (var key in usefulResources) {
+        if (usefulResources.hasOwnProperty(key)) {
+          var link = document.createElement('a');
+          link.href = usefulResources[key].link;
+          link.textContent = key;
+          var description = document.createElement('p');
+          description.textContent = usefulResources[key].description;
+          resourceDiv.appendChild(link);
+          resourceDiv.appendChild(description);
+        }
+      }
+      document.getElementById("too3").innerHTML = data.managingCommunication.paragraph;
+      document.getElementById("too4").innerHTML = data.deadlines.paragraph;
+      document.getElementById("credit1").innerHTML = data.Credits.paragraph;
+      document.getElementById("fea1").innerHTML = data.feature.paragraph;
+      
+      var userStoriesElement = document.getElementById('fea2');
+      var userList = document.createElement('ul');
+      for (var story in data.userStories) {
+        if (data.userStories.hasOwnProperty(story)) {
+          var listItem = document.createElement('li');
+          var storyObject = data.userStories[story];
+          var storyTitle = document.createElement('h3');
+          storyTitle.textContent = story;
+          listItem.appendChild(storyTitle);
+          var storyDetails = document.createElement('p');
+          storyDetails.textContent = 'As a ' + storyObject.As + ', I want ' + storyObject.IWant;
+          listItem.appendChild(storyDetails);
+          var acceptanceList = document.createElement('ul');
+          for (var i = 0; i < storyObject.AcceptanceCriteria.length; i++) {
+            var acceptanceItem = document.createElement('li');
+            acceptanceItem.textContent = storyObject.AcceptanceCriteria[i];
+            acceptanceList.appendChild(acceptanceItem);
+          }
+          listItem.appendChild(acceptanceList);
+          userList.appendChild(listItem);
+        }
+      }
+      userStoriesElement.appendChild(userList);
+      var testCaseDiv = document.getElementById("fea3");
+      for (var key in data.testCases) {
+        if (data.testCases.hasOwnProperty(key)) {
+          var title = document.createElement("h4");
+          title.textContent = key;
+          var ul = document.createElement("ul");
+          for (var i = 0; i < data.testCases[key].length; i++) {
+            var li = document.createElement("li");
+            li.textContent = data.testCases[key][i];
+            ul.appendChild(li);
+          }
+          testCaseDiv.appendChild(title);
+          testCaseDiv.appendChild(ul);
+        }
+      }
+      const boxData = [{
+        title: "Install Requirements",
+        text: "Box Requirements for OpenAI API and Gecko Web Driver Installation",
+        aside: {
+          label: "Install Requirements",
+          information: "To begin, make sure Python is installed on your system. Visit the official Python website (https://www.python.org/) for installation. Next, get the OpenAI API by signing up on the OpenAI website (https://www.openai.com/) for an API key. Download the Gecko web driver from the Mozilla GeckoDriver GitHub repository (https://github.com/mozilla/geckodriver) for browser automation. Note: If using a different browser, obtain the respective web driver (e.g., ChromeDriver for Chrome). Follow the browser's documentation for installation instructions.",
+          notes: "Python Installation :",
+          image: {
+            src: "src/Asset/install-python.png",
+            alt: "Install python",
+          },
+        },
+      }, {
+        title: "Make Secret",
+        text: "Creating a Secret Directory and Configuring secret.py",
+        aside: {
+          label: "Make Secret",
+          information: "Go to the location where you want to create the 'secret' directory. If the directory doesn't exist, create it in the same location as the current file. Inside the 'secret' directory, create a file named 'secret.py'. Open the 'secret.py' file using a text editor. Copy and paste the following lines of code into the 'secret.py' file: python ' SECRET_KEY = 'yourpassword' , OPENAI_API_KEY = 'openAI key' GECKO_PATH = '{gecko path}''. Replace 'yourpassword' with your desired secret key or password. Replace 'openAI key' with your actual OpenAI API key. If you don't have one, sign up on the OpenAI website to obtain an API key. Replace '{gecko path}' with the absolute path to the Gecko driver executable on your system. The Gecko driver is used for automating interactions with the Firefox web browser. Make sure to provide the correct path to the Gecko driver executable file. Save the 'secret.py' file.",
+          notes: "configure Keys :",
+          image: {
+            src: "src/Asset/secrets.png",
+            alt: "secrets Image ",
+          },
+        },
+      }, {
+        title: "On Windows",
+        text: "Windows Installation Steps ",
+        aside: {
+          label: "Windows Installation",
+          information: "To install on Windows, follow these steps: 1. Open a command prompt or terminal in the desired project location. 2. Create a virtual environment: 'python -m venv .venv' 3. Activate the virtual environment: '.venv/Scripts/activate' 4. Install dependencies from 'requirements.txt': 'python -m pip install -r requirements.txt'.",
+          notes: " Installation on windows :",
+          image: {
+            src: "src/Asset/windows.png",
+            alt: "winintsall ",
+          },
+        },
+      }, {
+        title: "On Linux/MacOS",
+        text: "Linux/MacOS Windows Installation Steps ",
+        aside: {
+          label: "Linux/MacOS Installation",
+          information: "To install on Linux/MacOS, follow these steps: 1. Open a command prompt or terminal in the desired project location. 2. Create a virtual environment: `python -m venv .venv` 3. Activate the virtual environment: `source .venv/bin/activate`\n4. Install dependencies from 'requirements.txt': `python -m pip install -r requirements.txt`.",
+          notes: " Installation on Linux :",
+          image: {
+            src: "src/Asset/linuxinstall.png",
+            alt: "linuxinstall ",
+          },
+        },
+      }, {
+        title: "Label Object Relational Mapping",
+        text: "Backend Application Development with SQLAlchemy and Flask",
+        aside: {
+          label: "Interacting with Databases Using SQLAlchemy and Flask ",
+          information: "SQLAlchemy provides tools for interacting with databases using Python objects and offers an ORM layer. The ORM feature allows developers to map classes to a database, separating the object model and database schema. SQLAlchemy can be used with Flask to develop database-backed web applications. Flask provides the web framework and tools for building the application's user interface and handling HTTP requests and responses. The SQLAlchemy configurations for our project are located in 'FirstMVP/app/models.py'. The code in our project defines a database schema using SQLAlchemy and Flask, including models for channels, users, channel participants, clippy GPT, and messages with relationships between them. Additional attributes for customizable GPT bots and attachments are also included in the project's database. We have numerous classes that manage Channel, User, timestamp, and Message attributes. The database also stores the user passwords, hich is defined as a column with a string length of 127 in the database. This setup maps the backend of the application.",
+          notes: "Screenshot of FirstMVP/app/models.py ORM Mapped Class examples: ",
+          image: {
+            src: "src/Asset/database.png",
+            alt: "database ",
+          },
+        },
+      }, {
+        title: "Build App",
+        text: "Command to Start the Application",
+        aside: {
+          label: "Run the following command to start the application:",
+          information: "To run the app, execute the command: 'python debug_run.py'",
+          notes: "Build command example on linux :",
+          image: {
+            src: "src/Asset/startapp.png",
+            alt: "startapp ",
+          },
+        },
+      }, {
+        title: "Migrations",
+        text: " Migrations with Flask-Migrate",
+        aside: {
+          label: "Simplifying Database Migrations with Flask-Migrate:",
+          information: "Flask-Migrate is a Flask extension that is used for managing database migrations. It provides developers with the ability to handle changes to the database schema over time. This extension is helpful in evolving the structure of the database without the need for manual modifications or risking data loss. Flask-Migrate supports SQLAlchemy, which is an ORM library that allows developers to define their database models. Database migrations are incremental changes to the schema that are captured by Flask-Migrate. These migrations encompass tasks such as creating tables, adding or modifying columns, and altering relationships. Flask-Migrate simplifies the process of applying and rolling back migrations by providing convenient commands.",
+          notes: "Migrations diagram sourced from blog.fossasia.org",
+          image: {
+            src: "src/Asset/migrate.png",
+            alt: "soruced from hxxps://blog.fossasia.org/tag/flask-migrate/",
+          },
+        },
+      }, {
+        title: "Routing",
+        text: "Flask Routes and Handle Requests",
+        aside: {
+          label: "Flask routes handle requests in a stateless client-server architecture",
+          information: "Routing connects URLs to code responsible for generating webpages in web development. Python web frameworks, like Flask, use the route() decorator to associate URLs with functions, enabling efficient request handling based on URL patterns. Routes in a stateless client-server architecture are specific endpoints or URLs facilitating client-server interaction, including registration, login, resource retrieval, creation, update, and deletion routes. This allows for processing of requests on the server and generating responses. For example, in the FirstMVP and Chat GPT apps, routing configurations are stored in 'views.py', with implemented routes for various functionalities using 'POST' requests. Our search function utilizes routes to retrieve data without redirecting the user to a new page. it renders a template over the index page, improving the user experience. Redirects and URL variables are also used for signup, index, and login functionalities, particularly useful for single-page applications that looks like a windows 98 desktop .",
+          notes: "Screenshot of FirstMVP/app /views.py ORM app.route examples :",
+          image: {
+            src: "src/Asset/routing.png",
+            alt: "routing ",
+          },
+        },
+      }, {
+        title: "Run Tests",
+        text: "Running Selenium Tests",
+        aside: {
+          label: "In the Project Root Directory",
+          information: "To run tests in the project root directory, use the command: 'python test_run.py'. To test my application, I will utilize Selenium tests. Selenium is a powerful automation tool that allows me to simulate user interactions with my app.",
+          notes: "command to initialize test script:",
+          image: {
+            src: "src/Asset/tests.png",
+            alt: "tests ",
+          },
+        },
+      }, {
+        title: "Open App",
+        text: "Open the App in Your Preferred Browser",
+        aside: {
+          label: "Navigate to Login Page",
+          information: "To access the app, open your preferred web browser and go to http://127.0.0.1:5000/login. Enter your credentials on the login page to log in and explore the app's features. The URL provides convenient access to the app from any device.",
+          notes: "navigate to http://127.0.0.1:5000/login.",
+          image: {
+            src: "src/Asset/loginPage.png",
+            alt: "loginPage ",
+          },
+        },
+      },
+      
+      {
+        title: "Sign Up & Login",
+        text: "create an account and start a Convo",
+        aside: {
+          label: "Sign Up and Create a New Account",
+          information: "Signing up and creating a new account typically involves filling out a form with necessary information. This includes selecting a username, providing an email address, and setting a password. These details are crucial for establishing a unique user identity and ensuring secure access to the account. Once logged in, you are ready to use the app.",
+          notes: "fill sign up forms and log in:",
+          image: {
+            src: "src/Asset/loggedin.png",
+            alt: "loggedin ",
+          },
+        },
+      },
+      
+      {
+        title: "Start Using The App",
+        text: "Explore the apps Features",
+        aside: {
+          label: "Apps Features and APP instruantions ",
+          information: "The app has numerous features. The AI Chat feature lets you create and interact with AI-powered bots. To create a bot, click 'Create AI,' give it a name and purpose. To use the bot, type '/gpt {bot_name} {message}' and click 'Send'. For regular chats, click 'Chat,' name the chat, add users by clicking 'Add Users,' and select participants. To leave a channel, select the channel and click 'Leave Channel'. To search, click 'Search,' enter the text, and press Enter or click the search button. For more information, click on the instructions button in the start menu.",
+          notes: "instruction webpage on windows69 chatAPP:",
+          image: {
+            src: "src/Asset/instructions.png",
+            alt: "instructions ",
+          },
+        },
+      },
+      
+        ,];
+      
+      
+      function boxClicked(aside) {
+        const asideContainer = document.getElementById("asideContainer");
+        const isCollapsed = asideContainer.style.display === "none";
+        if (isCollapsed) {
+          // Show the right side
+          asideContainer.innerHTML = `
+              
+          										<h2>${aside.label}</h2>
+          										<p>${aside.information}</p>
+          										<p>${aside.notes}</p>
+            `;
+          if (aside.image) {
+            const asideImage = document.createElement("img");
+            asideImage.src = aside.image.src;
+            asideImage.alt = aside.image.alt;
+            asideImage.className = "box-image";
+            asideContainer.appendChild(asideImage);
+          }
+          document.getElementById("maininstructions").style.width = "1200px";
+          asideContainer.style.display = "block";
+          document.getElementById("rightscroll").style.display = "block";
+        } else {
+          document.getElementById("maininstructions").style.width = "550px";
+          document.getElementById("rightscroll").style.display = "none";
+          asideContainer.style.display = "none";
+        }
+      }
+      window.addEventListener("load", function () {
+        document.getElementById("maininstructions").style.width = "550px";
+        document.getElementById("rightscroll").style.display = "none";
+      });
+      const boxContainer = document.getElementById("boxContainer");
+      boxData.forEach(function (box) {
+        const newBox = document.createElement("div");
+        newBox.className = "box";
+        newBox.id = box.title;
+        const boxTitle = document.createElement("div");
+        boxTitle.textContent = box.title;
+        boxTitle.className = "box-title";
+        newBox.appendChild(boxTitle);
+        const boxText = document.createElement("div");
+        boxText.textContent = box.text;
+        boxText.className = "box-text";
+        newBox.appendChild(boxText);
+        newBox.setAttribute("onclick", `boxClicked(${JSON.stringify(box.aside)})`);
+        boxContainer.appendChild(newBox);
+      });
+      
+      function toggleDiv(element) {
+        var div = document.getElementById(element);
+        if (div.style.display === "block") {
+          div.style.display = "none";
+        } else {
+          div.style.display = "block";
+        }
+      }
+      
+      function openPopup(element) {
+        document.getElementById('overlay').style.display = 'block';
+        document.getElementById(element).style.display = 'block';
+      }
+
+      function closePopup(element) {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById(element).style.display = 'none';
+      }
+   </script>
+</html>
