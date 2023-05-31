@@ -7,6 +7,8 @@ Final Exam - Take Home Test
 
 Released 8am, Tuesday May 30, 2023, Due 5pm, Wednesday May 31, 2023 2022 take home exam available here
 
+link to exam : https://teaching.csse.uwa.edu.au/units/CITS3403/FinalTest-2023.pdf
+
 This Exam is worth 50% of your final grade and must be done individually. For equity reasons, the teaching staff will not be able to answer individual questions between the exams release and the due date. Questions may be posted to a public teams channel and may be answered by teaching staff. Any communication, commentary, or discussion of the test during this period will be considered academic misconduct.
 The format and examination points
 
